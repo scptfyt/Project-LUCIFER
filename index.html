@@ -1,46 +1,30 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Level 3</title>
-  <style>
-    body {
-      background: #0e0e0e;
-      color: #e0e0e0;
-      font-family: monospace;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 40px;
-    }
-    #hidden-msg {
-      opacity: 0;
-      pointer-events: none;
-      user-select: none;
-    }
-    .cipher {
-      margin-top: 40px;
-      white-space: pre-wrap;
-      border: 1px solid #444;
-      padding: 20px;
-      width: 80%;
-    }
-  </style>
+  <meta charset="utf-8" />
+  <title>404 - Gate not open</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="/styles.css" />
+  <!--
+    线索 A（伪 Base64）: 看起来像 Base64 的长串，但解出来是“噪声” —— 玩家应怀疑这是对某消息做了重复密钥 XOR 后再 base64 的结果。
+    你作为出题人把下面的字符串替换为由脚本生成的结果（示例占位）：
+  -->
+  <!--
+  U0tXQk5YR1pXUEFNUlJYQkZKV3ZlS0ZsY0NkZ05q
+  -->
+  <link rel="icon" href="/public/favicon.ico" />
 </head>
 <body>
-  <h1>Level 3</h1>
-  <p>Follow the path of absence.</p>
-  
-  <!-- 空白区，用于元素检查发现隐藏文本 -->
-  <div id="hidden-msg">VGhpcyBpcyB5b3VyIG5leHQgaW50IG9mIHNlZWluZyB0aGUgcGhvdG9uIG51bWJlcg==</div>
+  <main style="font-family: system-ui, sans-serif; text-align:center; margin-top:10vh;">
+    <h1 style="font-size:48px;">404 - Gate not open</h1>
+    <p style="color:#666;">The gate is closed. Inspect the source.</p>
+  </main>
 
-  <div class="cipher">
------BEGIN DATA-----
-01001000 01001001 00100000 01010100
-01001000 01000101 01010010 01000101
------END DATA-----
-  </div>
-
+  <!-- 
+    设计说明（不出现在页面上，只有看源码的人能看到）：
+    - 线索 A：上面的注释里放有“伪 Base64”，玩家应该先尝试 base64 解码；会得到不可读内容，从而怀疑是重复密钥 XOR 加密（典型的 crib-dragging 解法）。
+    - 线索 B：在 styles.css 的注释中存在摩斯码（. -） → 解出 "QLUCIFER"。
+    - 线索 C：favicon 是 PNG (转为 ico)，在 LSB 中嵌入纯文本 SHA256 散列 (例如：a92fd1b4dd3...)；玩家需要下载 favicon 并用 LSB 提取工具读取散列，这其实就是下一关文件名 / 关键哈希。
+  -->
 </body>
 </html>
