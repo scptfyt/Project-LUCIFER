@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Level 3</title>
+  <style>
+    body {
+      background: #0e0e0e;
+      color: #e0e0e0;
+      font-family: monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px;
+    }
+    #hidden-msg {
+      opacity: 0;
+      pointer-events: none;
+      user-select: none;
+    }
+    .cipher {
+      margin-top: 40px;
+      white-space: pre-wrap;
+      border: 1px solid #444;
+      padding: 20px;
+      width: 80%;
+    }
+  </style>
+</head>
+<body>
+  <h1>Level 3</h1>
+  <p>Follow the path of absence.</p>
+  
+  <!-- 空白区，用于元素检查发现隐藏文本 -->
+  <div id="hidden-msg">VGhpcyBpcyB5b3VyIG5leHQgaW50IG9mIHNlZWluZyB0aGUgcGhvdG9uIG51bWJlcg==</div>
+
+  <div class="cipher">
+-----BEGIN DATA-----
+01001000 01001001 00100000 01010100
+01001000 01000101 01010010 01000101
+-----END DATA-----
+  </div>
+
+</body>
+</html>
